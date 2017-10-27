@@ -1,6 +1,8 @@
 
 public class test {
 
-	sjvnspbqùldv 
-	khvkhv
+test push 2
+test push 3
+test;
+
 }
