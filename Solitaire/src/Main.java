@@ -1,9 +1,16 @@
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 		
-		Jeux ec = new Jeux();
-		//ec.menu();
+    	
+		Carte solitaire = new Carte();
+		solitaire.remplir_paquet();
+		solitaire.remplir_collonne();
+		solitaire.afficher_solitaire();
+		solitaire.tirer_une_carte();
+
 }
 }
