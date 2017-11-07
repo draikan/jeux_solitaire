@@ -29,9 +29,5 @@ public class Carte {
             this.type = type;
     }
     
-    public String toString()
-    {
-    	
-    }
-
+    
 }
