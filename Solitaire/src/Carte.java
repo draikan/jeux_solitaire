@@ -28,6 +28,12 @@ public class Carte {
     private ArrayList c7_v = new ArrayList();
     
     
+    private ArrayList carreau = new ArrayList();
+    private ArrayList coeur = new ArrayList();
+    private ArrayList trefle = new ArrayList();
+    private ArrayList pique = new ArrayList();
+    
+    
     
     public Carte()
     {
@@ -62,6 +68,25 @@ public class Carte {
             this.type = type;
     }
     
+    
+    public void print() {
+        String[] colors = {"Car","Coe","Tre","Piq"};
+        String[] values = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        System.out.print(colors[val] + values[type]);
+
+    }
+
+    
+    
+    public void print2() {
+        for (int i = 0; i < 52; i++) {
+            Carte carte = (Carte) paquet.get(i);
+             carte.print();
+            System.out.println();
+            }
+        }
+    
+    
     public void remplir_paquet() {
     	for(int i = 0; i < 13; i++){
     		for(int c = 0; c<4 ; c++) {
@@ -71,13 +96,15 @@ public class Carte {
     }
     
     public void remplir_collonne(){
-    	for(int i=1 ; i < 2 ;i++){c1.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 3 ;i++){c2.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 4 ;i++){c3.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 5 ;i++){c4.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 6 ;i++){c5.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 7 ;i++){c6.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
- 	    for(int i=1 ; i < 8 ;i++){c7.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
+
+ 	    for(int i=1 ; i < 2 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c1.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 3 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c2.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 4 ;i++){Object carte = paquet.get(r.nextInt(paquet.size())); c3.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 5 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c4.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 6 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c5.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 7 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c6.add(carte);paquet.remove(carte);}
+	    for(int i=1 ; i < 8 ;i++){Object carte =  paquet.get(r.nextInt(paquet.size())); c7.add(carte);paquet.remove(carte);}
+
  		c1_v.add(c1.get(c1.size() - 1));c1.remove(c1.get(c1.size() - 1));
 	    c2_v.add(c2.get(c2.size() - 1));c2.remove(c2.get(c2.size() - 1));
 	    c3_v.add(c3.get(c3.size() - 1));c3.remove(c3.get(c3.size() - 1));
@@ -87,6 +114,8 @@ public class Carte {
 	    c7_v.add(c7.get(c7.size() - 1));c7.remove(c7.get(c7.size() - 1));
     }
     
+    
+    
     public void afficher_solitaire() {
     	System.out.println(c1.size() + "" + c1_v);
 	    System.out.println(c2.size() + "" + c2_v);
@@ -95,10 +124,18 @@ public class Carte {
 	    System.out.println(c5.size() + "" + c5_v);
 	    System.out.println(c6.size() + "" + c6_v);
 	    System.out.println(c7.size() + "" + c7_v);
+	    
+	    
+	    System.out.println(carreau);
+	    System.out.println(coeur);
+	    System.out.println(trefle);
+	    System.out.println(pique);
+	    
+	
+	    		
     }
     
     public void tirer_une_carte() {
-    	paquet.clear();
     	if(paquet.size() != 0) {
     		paquet_v.add(paquet.get(0));
     		paquet.remove(paquet.get(0));
