@@ -1,11 +1,37 @@
 import java.util.ArrayList;
 import java.util.Random;
-	 
+import java.util.Scanner;
+import java.util.Scanner;
 
 public class Jeux {
+	Scanner sc = new Scanner(System.in);
+	public void menu()
+	{
+			int select = 0; 
+			do{
+				System.out.println("****** MENU JEUX ********");
+				System.out.println("1: Bouger une carte");
+				System.out.println("2: Piocher une carte");
+				select = this.sc.nextInt();
+				this.sc.nextLine();
+				
+				
+				switch(select)
+				{
+					case 1 : this.bouger(); break;
+					case 2 : this.piocher(); break;
+				}
+			}while(select!=0);	
+		}
+	public void bouger() {
+		
+	}
+	public void piocher() {
+		
+	}
 	 
 	  public static void main(String[] args) {
-	         
+		
 	    ArrayList carreau = new ArrayList();
 	    ArrayList coeur = new ArrayList();
 	    ArrayList pique = new ArrayList();
@@ -66,4 +92,6 @@ public class Jeux {
 	    System.out.println(paquet);
 	    
 	    }
+	  
+	  
 	}
