@@ -11,6 +11,7 @@ public class Main {
 		solitaire.remplir_collonne();
 		solitaire.afficher_solitaire();
 		solitaire.tirer_une_carte();
-
+		Jeux monJeux = new Jeux();
+		monJeux.menu();
 }
 }
