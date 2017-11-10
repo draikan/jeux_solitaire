@@ -43,13 +43,13 @@ public class Jeux {
 	public void choixCarte() {
 		System.out.println("Veuillez choisir une des cartes visibles ");
 		System.out.println("Veuillez choisir une des cartes visibles");
-		System.out.print(c1.size() + "" + c1_v + "|");
-	    System.out.print(c2.size() + "" + c2_v + "|");
-	    System.out.print(c3.size() + "" + c3_v + "|");
-	    System.out.print(c4.size() + "" + c4_v + "|");
-	    System.out.print(c5.size() + "" + c5_v + "|");
-	    System.out.print(c6.size() + "" + c6_v + "|");
-	    System.out.print(c7.size() + "" + c7_v + "|");
+//		System.out.print(c1.size() + "" + c1_v + "|");
+//	    System.out.print(c2.size() + "" + c2_v + "|");
+//	    System.out.print(c3.size() + "" + c3_v + "|");
+//	    System.out.print(c4.size() + "" + c4_v + "|");
+//	    System.out.print(c5.size() + "" + c5_v + "|");
+//	    System.out.print(c6.size() + "" + c6_v + "|");
+//	    System.out.print(c7.size() + "" + c7_v + "|");
 	}
 
 	public void piocher() {
