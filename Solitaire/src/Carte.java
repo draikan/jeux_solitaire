@@ -6,41 +6,6 @@ public class Carte {
 	private  int val ;
     private int type ;
     
-    private ArrayList paquet = new ArrayList();
-    private ArrayList paquet_v = new ArrayList();
-    
-    private Random r = new Random();
-    
-    private ArrayList c1 = new ArrayList();
-    private ArrayList c2 = new ArrayList();
-    private ArrayList c3 = new ArrayList();
-    private ArrayList c4 = new ArrayList();
-    private ArrayList c5 = new ArrayList();
-    private ArrayList c6 = new ArrayList();
-    private ArrayList c7 = new ArrayList();
-    
-    private ArrayList c1_v = new ArrayList();
-    private ArrayList c2_v = new ArrayList();
-    private ArrayList c3_v = new ArrayList();
-    private ArrayList c4_v = new ArrayList();
-    private ArrayList c5_v = new ArrayList();
-    private ArrayList c6_v = new ArrayList();
-    private ArrayList c7_v = new ArrayList();
-    
-    
-    private ArrayList carreau = new ArrayList();
-    private ArrayList coeur = new ArrayList();
-    private ArrayList trefle = new ArrayList();
-    private ArrayList pique = new ArrayList();
-    
-    
-    
-    public Carte()
-    {
-        this.val=val ; 
-        this.type=type; 
-    }
-    
     
     public Carte(int val , int type )
     {
@@ -56,16 +21,6 @@ public class Carte {
     public int getType()
     {
         return type ; 
-    }
-    
-    public void setVal(int val)
-    {
-            this.val = val;
-    }
-
-    public void setType(int type)
-    {
-            this.type = type;
     }
     
     
