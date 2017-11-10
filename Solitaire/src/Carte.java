@@ -70,7 +70,7 @@ public class Carte {
     	}
     }
     
-    public void remplir_collonne(){
+    public void remplir_colonne(){
     	for(int i=1 ; i < 2 ;i++){c1.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
  	    for(int i=1 ; i < 3 ;i++){c2.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
  	    for(int i=1 ; i < 4 ;i++){c3.add(paquet.get(r.nextInt(paquet.size())));paquet.remove(paquet.get(r.nextInt(paquet.size())));}
