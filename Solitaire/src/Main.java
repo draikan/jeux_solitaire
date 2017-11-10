@@ -6,12 +6,21 @@ public class Main {
     public static void main(String[] args) {
 		
     	
-		Carte solitaire = new Carte();
-		solitaire.remplir_paquet();
-		solitaire.remplir_collonne();
-		solitaire.afficher_solitaire();
-		solitaire.tirer_une_carte();
-		//Jeux monJeux = new Jeux();
-		//monJeux.menu();
+
+ArrayList<ArrayList<String>> dom=new ArrayList<ArrayList<String>>();
+ArrayList<String> test = new ArrayList<String> ();
+ArrayList<String> test2 = new ArrayList<String> ();
+ 
+test.add("C");
+test.add("S");
+ 
+test2.add("K");
+test2.add("R");
+ 
+dom.add(test);
+dom.add(test2);
+ 
+for(int i = 0 ; i < dom.get(0).size();i++)
+System.out.println(dom.get(0).get(i));
 }
 }
