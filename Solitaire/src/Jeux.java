@@ -5,56 +5,7 @@ import java.util.Scanner;
 
 public class Jeux {
 	Scanner sc = new Scanner(System.in);
-	public void menu()
-	{
-			int select = 0; 
-			do{
-				System.out.println("****** MENU JEUX ********");
-				System.out.println("1: Bouger une carte");
-				System.out.println("2: Piocher une carte");
-				select = this.sc.nextInt();
-				this.sc.nextLine();
-				
-				
-				switch(select)
-				{
-					case 1 : this.bouger(); break;
-					case 2 : this.piocher(); break;
-				}
-			}while(select!=0);	
-		}
-	public void bouger() {
-		int select = 0; 
-		do{
-			System.out.println("****** MENU JEUX ********");
-			System.out.println("0: Revenir en arrière");
-			System.out.println("1: Choisir une carte");
-			select = this.sc.nextInt();
-			this.sc.nextLine();
-			
-			
-			switch(select)
-			{
-				case 1 : this.choixCarte(); break;
-			}
-		}while(select!=0);	
-	}
 	
-	public void choixCarte() {
-		System.out.println("Veuillez choisir une des cartes visibles ");
-		System.out.println("Veuillez choisir une des cartes visibles");
-//		System.out.print(c1.size() + "" + c1_v + "|");
-//	    System.out.print(c2.size() + "" + c2_v + "|");
-//	    System.out.print(c3.size() + "" + c3_v + "|");
-//	    System.out.print(c4.size() + "" + c4_v + "|");
-//	    System.out.print(c5.size() + "" + c5_v + "|");
-//	    System.out.print(c6.size() + "" + c6_v + "|");
-//	    System.out.print(c7.size() + "" + c7_v + "|");
-	}
-
-	public void piocher() {
-		
-	}
 	
 	 
 	  public static void main(String[] args) {
