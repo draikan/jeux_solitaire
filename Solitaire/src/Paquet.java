@@ -1,12 +1,16 @@
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Paquet {
 	
 	
-	 private ArrayList<Carte> paquet = new ArrayList<Carte>();
-	    private ArrayList<Carte> paquet_v = new ArrayList<Carte>();
-	    
-	    private Random r = new Random();
+	 	private ArrayList<Carte> paquet = new ArrayList<Carte>();
 
+	    
+	    public void remplir_paquet() {
+	    	for(int i = 0; i < 13; i++){
+	    		for(int c = 0; c<4 ; c++) {
+	    			paquet.add(new Carte(i,c));
+	    		}
+	    	}
+	    }
 }
