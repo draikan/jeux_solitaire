@@ -4,10 +4,10 @@ import java.util.Random;
 public class Paquet {
 	
 	
-	 	private ArrayList<Carte> paquet ;
+	 	public  ArrayList<Carte> paquet ;
 
 	    
-	    public void remplir_paquet() {
+	    public Paquet() {
 	    	paquet = new ArrayList<Carte>() ;
 	    	for(int i = 0; i < 13; i++){
 	    		for(int c = 0; c<4 ; c++) {
@@ -16,16 +16,31 @@ public class Paquet {
 	    	}
 	    }
 	    
-	    
-	    public Carte getCard() {
-	        return paquet.remove(0);
+
+	    public int sizePaquet() {
+	        return paquet.size();
 	    }
+	    
+	    public Carte getPaquet(int c) {
+	        return paquet.get(c);
+	    }
+	    
+	    public boolean removePaquet(Carte carte) {
+	        return paquet.remove(carte);
+	    }
+	    
+	    public boolean addPaquet(Carte c) {
+	        return paquet.add(c);
+	    }
+	    
+	    
+	    
 
 	    public void shuffle() {
 	        ArrayList<Carte> newDeck = new ArrayList<Carte>();
 	        for (int i = 0; i < 51; i++) {
-	            int rand = new Random().nextInt(paquet.size());
-	            newDeck.add(paquet.remove(rand));
+	            int r = new Random().nextInt(paquet.size());
+	            newDeck.add(paquet.remove(r));
 	        }
 	        newDeck.add(paquet.remove(0));
 	        paquet = newDeck;
@@ -36,7 +51,6 @@ public class Paquet {
 	    public void print() {
 	        for (int i = 0; i < 52; i++) {
 	            Carte card = paquet.get(i);
-	            card.makeVisible();
 	            card.print();
 	        }
 	    }
