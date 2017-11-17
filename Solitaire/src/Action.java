@@ -103,7 +103,7 @@ public class Action {
 				 dest.add(carte_exp) ;
 				 exp.remove(carte_exp);	 
 			 }
-			 if(dest == coul1 || dest==coul2 || dest == coul3 || dest == coul4) {
+			 if(dest == coul1 || dest==coul2 || dest == coul3 || dest == coul4 && carte_exp.val==1) {
 				 dest.add(carte_exp) ;
 				 exp.remove(carte_exp);
 			 }
@@ -112,24 +112,47 @@ public class Action {
 			 }
 		 }
 		 
-		 if(collonne.contains(exp) && collonne.contains(dest)){
-			 Carte carte_bout = exp.get(0) ;
+		 if((collonne.contains(exp) && collonne.contains(dest)) || (pileCoul.contains(exp) && collonne.contains(dest)) ){
 			 Carte arrive = dest.get(dest.size()-1) ; 
-			 if(carte_bout.val == arrive.val -1) {
-				 if(carte_bout.color == 1 || carte_bout.color == 2) {
-					 if(arrive.color==3 || arrive.color==4 ) {
-						 dest.add(carte_exp) ;
-						 exp.remove(carte_exp);
-					 }else {return false ;}
-				 }
-				 if(carte_bout.color == 3 || carte_bout.color == 4) {
-					 if(arrive.color== 1 || arrive.color == 2 ) {
-						 dest.add(carte_exp) ;
-						 exp.remove(carte_exp);
-					 }else {return false ;}
-			 }
+			 for(int i = 0 ; i<exp.size() + 1 ; i++) {
+				 Carte carte_bout = exp.get(i) ;
+				 
+				 if(carte_bout.val == arrive.val -1) {
+					 if(carte_bout.color == 1 || carte_bout.color == 2) {
+						 if(arrive.color==3 || arrive.color==4 ) {
+							 for(int j = i ; j<exp.size() + 1 ; j++) {
+								 Carte depla = exp.get(j) ; 
+								 dest.add(depla) ;
+								 exp.remove(depla);   
+							 }
+							 return true ; 
+						 }
+					 }
+					 if(carte_bout.color == 3 || carte_bout.color == 4) {
+						 if(arrive.color== 1 || arrive.color == 2 ) {
+							 for(int j = i ; j<exp.size() + 1 ; j++) {
+								 Carte depla = exp.get(j) ; 
+								 dest.add(depla) ;
+								 exp.remove(depla);   
+							 }
+							 return true ; 
+						 }
+				 		}
+			 		}
+			 	}
+			 return false ;
+		 }
+			 
+		if(collonne.contains(exp) && pileCoul.contains(dest)) {
+			Carte carte_dep = exp.get(dest.size()-1) ;
+			
+			if(carte_dep.color == carte_dest.color && carte_dest.val == carte_dep.val-1) {
+				 dest.add(carte_dep) ;
+				 exp.remove(carte_dep);
+			}
+			else {return false ; }
+			
 		}
-	 }
 
 return false ;
 }
