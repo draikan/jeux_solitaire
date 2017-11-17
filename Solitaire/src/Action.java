@@ -112,7 +112,7 @@ public class Action {
 			 }
 		 }
 		 
-		 if((collonne.contains(exp) && collonne.contains(dest)) || (pileCoul.contains(exp) && collonne.contains(dest)) ){
+		 if((collonne.contains(exp) && collonne.contains(dest))){
 			 Carte arrive = dest.get(dest.size()-1) ; 
 			 for(int i = 0 ; i<exp.size() + 1 ; i++) {
 				 Carte carte_bout = exp.get(i) ;
@@ -142,17 +142,43 @@ public class Action {
 			 	}
 			 return false ;
 		 }
+		 
 			 
-		if(collonne.contains(exp) && pileCoul.contains(dest)) {
+		if((collonne.contains(exp) && pileCoul.contains(dest)) || (exp == paquet_v && pileCoul.contains(dest))) {
 			Carte carte_dep = exp.get(dest.size()-1) ;
 			
 			if(carte_dep.color == carte_dest.color && carte_dest.val == carte_dep.val-1) {
 				 dest.add(carte_dep) ;
 				 exp.remove(carte_dep);
+				 return true ; 
 			}
 			else {return false ; }
-			
 		}
+		
+		if((pileCoul.contains(exp) && collonne.contains(dest)) || (exp == paquet_v && collonne.contains(dest))  ) {
+			 Carte arrive = dest.get(dest.size()-1) ; 
+			 Carte carte_bout = exp.get(exp.size()-1) ;
+				 
+			 if(carte_bout.val == arrive.val -1) {
+				 if(carte_bout.color == 1 || carte_bout.color == 2) {
+					 if(arrive.color==3 || arrive.color==4 ) {
+							 dest.add(carte_bout) ;
+							 exp.remove(carte_bout);   
+						 }
+						 return true ; 
+					 }
+				 }
+					 if(carte_bout.color == 3 || carte_bout.color == 4) {
+						 if(arrive.color== 1 || arrive.color == 2 ) {
+								 dest.add(carte_bout) ;
+								 exp.remove(carte_bout);   
+							 }
+							 return true ; 
+						 }
+			return false ;	 
+	 		}
+		
+		
 
 return false ;
 }
