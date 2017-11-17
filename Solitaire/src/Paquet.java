@@ -45,13 +45,5 @@ public class Paquet {
 	        Collections.shuffle(newDeck);
 	    }
 	    
-	    
 
-	    public void print() {
-	        for (int i = 0; i < 52; i++) {
-	            Carte card = paquet.get(i);
-	            card.print(card.color, card.val);
-	        }
-	    
-	    }
 }

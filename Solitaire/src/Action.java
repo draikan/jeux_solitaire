@@ -14,7 +14,7 @@ public class Action {
 	 
 	
 	 private Paquet paquet ;
-	
+	 
 	 ArrayList<ArrayList<Carte>> collonne_v= new ArrayList<ArrayList<Carte>>();
 	    ArrayList<Carte> c1_v = new ArrayList<Carte> ();
 	    ArrayList<Carte> c2_v = new ArrayList<Carte> ();
@@ -92,7 +92,7 @@ public class Action {
 			}
 			
 			for(int i = 0 ;i<7 ; i++) {
-					Carte carte =  paquet.getPaquet(paquet.sizePaquet() - 1); 
+					Carte carte = collonne.get(i).get(collonne.get(i).size()-1); 
 					(collonne_v.get(i)).add(carte);
 					(collonne.get(i)).remove(carte);
 			}
@@ -101,12 +101,12 @@ public class Action {
 }
 		
 	  
-	 public void tirer_une_carte() {	    
+	 public void tirer_une_carte() {	
 		 if(paquet.sizePaquet() != 0) {
-	    		paquet_v.add(paquet.getPaquet(0));
-	    		paquet.removePaquet(paquet.getPaquet(0));
+	    		paquet_v.add(paquet.getPaquet(paquet.sizePaquet() - 1));
+	    		paquet.removePaquet(paquet.getPaquet(paquet.sizePaquet() - 1));
 	    	}
-	    	else {
+		 if(paquet.sizePaquet()== 0){
 	    		for(int i=0 ; i < paquet_v.size(); i++ ) {
 	    			paquet.addPaquet(paquet_v.get(i));
 	    		}
@@ -139,7 +139,6 @@ public class Action {
 			 Carte arrive = dest.get(dest.size()-1) ; 
 			 for(int i = 0 ; i<exp.size() + 1 ; i++) {
 				 Carte carte_bout = exp.get(i) ;
-				 
 				 if(carte_bout.val == arrive.val -1) {
 					 if(carte_bout.color == 1 || carte_bout.color == 2) {
 						 if(arrive.color==3 || arrive.color==4 ) {
@@ -205,15 +204,20 @@ return false ;
 }
 	 
 public void tiret(int c) {
+	if(c != 0) {
 	for(int i=0 ; i<c ; i++ )
 		System.out.print("[---]");
+	}
 }
 	 
 
 public void printPlateau() {
 	for (int i=0 ; i<7 ; i++) {
 		tiret(collonne.get(i).size()) ;
-		System.out.println(collonne_v.get(i));
+		for (int j=0 ; j < collonne_v.get(i).size(); j++){
+			System.out.print(afficher(collonne_v.get(i).get(j).color, collonne_v.get(i).get(j).val));
+		}
+		System.out.println("");
 	}
 	
 	System.out.println(coul1);
@@ -225,11 +229,39 @@ public void printPlateau() {
 
 }
 	 
+public  String afficher(int couleur , int valeur) {
+	ArrayList<String> coul = new ArrayList<String>() ; 
+	coul.add("Carreau");
+	coul.add("Coeur");
+	coul.add("Pique");
+	coul.add("Trefle");
+
 	
+	ArrayList<String> values = new ArrayList<String>() ; 
+	values.add("As");
+	values.add("2");
+	values.add("3");
+	values.add("4");
+	values.add("5");
+	values.add("6");
+	values.add("7");
+	values.add("8");
+	values.add("9");
+	values.add("10");
+	values.add("Valet");
+	values.add("Dame");
+	values.add("Roi");
+	
+    return coul.get(couleur) + values.get(valeur) ;
+
+}
+
+
 public void menu()
 		{
 				int select = 0; 
 				do{
+					//this.printPlateau();
 					System.out.println("****** MENU JEUX ********");
 					System.out.println("1: Bouger une carte");
 					System.out.println("2: Piocher une carte");
@@ -253,6 +285,9 @@ public ArrayList<Carte> convert(int a) {
 public void bouger() {
 	int select = 0; 
 	do{
+		this.printPlateau();
+		System.out.println(tableau);
+		System.out.println(collonne);
 		System.out.println("****** MENU JEUX ********");
 		System.out.println("0: Revenir en arrière");
 		System.out.println("1: Choisir une colonne");
@@ -273,6 +308,7 @@ public void bouger() {
 			int colDest = 0 ;
 			colDest = this.sc.nextInt();
 			this.sc.nextLine();
+			move(convert(colExp),convert(colDest));
 			if(!(move(convert(colExp),convert(colDest)))) {
 				System.out.println("Erreur");
 			}
