@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Paquet {
@@ -38,11 +39,7 @@ public class Paquet {
 
 	    public void shuffle() {
 	        ArrayList<Carte> newDeck = new ArrayList<Carte>();
-	        for (int i = 0; i < 51; i++) {
-	            int r = new Random().nextInt(paquet.size());
-	            newDeck.add(paquet.remove(r));
-	        }
-	        newDeck.add(paquet.remove(0));
+	        Collections.shuffle(newDeck);
 	        paquet = newDeck;
 	    }
 	    
