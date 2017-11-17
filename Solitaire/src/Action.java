@@ -135,13 +135,14 @@ public class Action {
 			 }
 		 }
 		 
-		 if((collonne.contains(exp) && collonne.contains(dest))){
+		 if(true){
+			 System.out.println("rentré");
 			 Carte arrive = dest.get(dest.size()-1) ; 
 			 for(int i = 0 ; i<exp.size() + 1 ; i++) {
 				 Carte carte_bout = exp.get(i) ;
 				 if(carte_bout.val == arrive.val -1) {
-					 if(carte_bout.color == 1 || carte_bout.color == 2) {
-						 if(arrive.color==3 || arrive.color==4 ) {
+					 if(carte_bout.color == 0 || carte_bout.color == 1) {
+						 if(arrive.color==2 || arrive.color==3 ) {
 							 for(int j = i ; j<exp.size() + 1 ; j++) {
 								 Carte depla = exp.get(j) ; 
 								 dest.add(depla) ;
@@ -150,8 +151,8 @@ public class Action {
 							 return true ; 
 						 }
 					 }
-					 if(carte_bout.color == 3 || carte_bout.color == 4) {
-						 if(arrive.color== 1 || arrive.color == 2 ) {
+					 if(carte_bout.color == 2 || carte_bout.color == 3) {
+						 if(arrive.color== 0 || arrive.color == 1 ) {
 							 for(int j = i ; j<exp.size() + 1 ; j++) {
 								 Carte depla = exp.get(j) ; 
 								 dest.add(depla) ;
@@ -199,7 +200,7 @@ public class Action {
 						 }
 			return false ;	 
 	 		}
-		
+		System.out.println("pa rentré");
 return false ;
 }
 	 
@@ -303,9 +304,11 @@ public void bouger() {
 
 		public void bougerCarte() {
 			int colExp = 0;
+			System.out.println("Choisir une colonne de depart");
 			colExp = this.sc.nextInt();
 			this.sc.nextLine();
 			int colDest = 0 ;
+			System.out.println("Choisir une colonne de depart");
 			colDest = this.sc.nextInt();
 			this.sc.nextLine();
 			move(convert(colExp),convert(colDest));
