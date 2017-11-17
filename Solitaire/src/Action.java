@@ -9,6 +9,10 @@ public class Action {
 	private Random r = new Random();
 	ArrayList<Carte> paquet_v = new ArrayList<Carte>();
 	
+	 ArrayList<ArrayList<Carte>> tableau= new ArrayList<ArrayList<Carte>>();
+	
+	 
+	
 	 private Paquet paquet ;
 	
 	 ArrayList<ArrayList<Carte>> collonne_v= new ArrayList<ArrayList<Carte>>();
@@ -37,10 +41,24 @@ public class Action {
 	    ArrayList<Carte> coul3 = new ArrayList<Carte> ();
 	    ArrayList<Carte> coul4 = new ArrayList<Carte> ();
 	    
+
 	    
 		public Action(){
 			
 			paquet = new Paquet() ;
+			
+			tableau.add(c1_v) ;
+			tableau.add(c2_v) ;
+			tableau.add(c3_v) ;
+			tableau.add(c4_v) ;
+			tableau.add(c5_v) ;
+			tableau.add(c6_v) ;
+			tableau.add(c7_v) ;
+			tableau.add(coul1);
+			tableau.add(coul2);
+			tableau.add(coul3);
+			tableau.add(coul4);
+			tableau.add(paquet_v);
 			
 			pileCoul.add(coul1);
 			pileCoul.add(coul2);
@@ -63,16 +81,17 @@ public class Action {
 			collonne.add(c6);
 			collonne.add(c7);
 			
-			for(int i = 1 ;i<collonne.size()+1 ; i++) {
+			
+			for(int i = 0 ;i<7 ; i++) {
 				paquet.shuffle();
-				for(int j = 1 ; j < i+1; j++ ) {
-					Carte carte =  paquet.getPaquet(0); 
+				for(int j = 0 ; j < i+1; j++ ) {
+					Carte carte =  paquet.getPaquet(paquet.sizePaquet() - 1); 
 					(collonne.get(i)).add(carte);
 					paquet.removePaquet(carte);
 				}	
 			}
 			
-			for(int i = 1 ;i<collonne.size()+1 ; i++) {
+			for(int i = 0 ;i<7 ; i++) {
 					Carte carte =  paquet.getPaquet(paquet.sizePaquet() - 1); 
 					(collonne_v.get(i)).add(carte);
 					(collonne.get(i)).remove(carte);
@@ -185,15 +204,17 @@ public class Action {
 return false ;
 }
 	 
+public void tiret(int c) {
+	for(int i=0 ; i<c ; i++ )
+		System.out.print("[---]");
+}
+	 
 
 public void printPlateau() {
-	System.out.println(c1);
-	System.out.println(c2);
-	System.out.println(c3);
-	System.out.println(c4);
-	System.out.println(c5);
-	System.out.println(c6);
-	System.out.println(c7);
+	for (int i=0 ; i<7 ; i++) {
+		tiret(collonne.get(i).size()) ;
+		System.out.println(collonne_v.get(i));
+	}
 	
 	System.out.println(coul1);
 	System.out.println(coul2);
@@ -223,33 +244,38 @@ public void menu()
 					}
 				}while(select!=0);	
 			}
-		public void bouger() {
-			int select = 0; 
-			do{
-				System.out.println("****** MENU JEUX ********");
-				System.out.println("0: Revenir en arrière");
-				System.out.println("1: Choisir une carte");
-				select = this.sc.nextInt();
-				this.sc.nextLine();
-				
-				
-				switch(select)
-				{
-					case 1 : this.choixCarte(); break;
-				}
-			}while(select!=0);	
+
+public ArrayList<Carte> convert(int a) {
+	return tableau.get(a);  
+}
+
+
+public void bouger() {
+	int select = 0; 
+	do{
+		System.out.println("****** MENU JEUX ********");
+		System.out.println("0: Revenir en arrière");
+		System.out.println("1: Choisir une colonne");
+		select = this.sc.nextInt();
+		this.sc.nextLine();
+		switch(select)
+		{
+			case 1 : this.bougerCarte(); break;
+
 		}
-		
-		public void choixCarte() {
-			System.out.println("Veuillez choisir une des cartes visibles ");
-			System.out.println("Veuillez choisir une des cartes visibles");
-//			System.out.print(c1.size() + "" + c1_v + "|");
-//		    System.out.print(c2.size() + "" + c2_v + "|");
-//		    System.out.print(c3.size() + "" + c3_v + "|");
-//		    System.out.print(c4.size() + "" + c4_v + "|");
-//		    System.out.print(c5.size() + "" + c5_v + "|");
-//		    System.out.print(c6.size() + "" + c6_v + "|");
-//		    System.out.print(c7.size() + "" + c7_v + "|");
+	}while(select!=0);	
+}
+
+		public void bougerCarte() {
+			int colExp = 0;
+			colExp = this.sc.nextInt();
+			this.sc.nextLine();
+			int colDest = 0 ;
+			colDest = this.sc.nextInt();
+			this.sc.nextLine();
+			if(!(move(convert(colExp),convert(colDest)))) {
+				System.out.println("Erreur");
+			}
 		}
 
 	 

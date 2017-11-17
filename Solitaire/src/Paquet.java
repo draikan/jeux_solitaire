@@ -23,7 +23,7 @@ public class Paquet {
 	    }
 	    
 	    public Carte getPaquet(int c) {
-	        return paquet.get(c);
+	    	return paquet.get(c);
 	    }
 	    
 	    public boolean removePaquet(Carte carte) {
@@ -35,12 +35,14 @@ public class Paquet {
 	    }
 	    
 	    
-	    
+		@Override
+		public String toString() {
+		return paquet.toString();
+		}	    
 
 	    public void shuffle() {
 	        ArrayList<Carte> newDeck = new ArrayList<Carte>();
 	        Collections.shuffle(newDeck);
-	        paquet = newDeck;
 	    }
 	    
 	    
@@ -48,8 +50,8 @@ public class Paquet {
 	    public void print() {
 	        for (int i = 0; i < 52; i++) {
 	            Carte card = paquet.get(i);
-	            card.print();
+	            card.print(card.color, card.val);
 	        }
-	    }
 	    
+	    }
 }

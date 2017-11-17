@@ -6,7 +6,7 @@ public class Main {
 		
     	
      	Action jeux = new Action();
-     	jeux.Action();
     	jeux.printPlateau();
-}
+    	jeux.menu();
+    }
 }

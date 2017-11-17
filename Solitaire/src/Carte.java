@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Carte {
 	
 	public boolean red;
@@ -10,13 +12,30 @@ public class Carte {
         this.val = val;
         this.color = color;
     }
-
-
-    public String print() {
-        String[] colors2 = {"?","?","?","?"};
-        String[] colors = {"Carreau","Coeur","Trefle","Pique"};
-        String[] values = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-        return colors[color] + values[val] ;
+    
+    public String print(int couleur , int valeur) {
+    	ArrayList<String> coul = new ArrayList<String>() ; 
+    	coul.add("Carreau");
+    	coul.add("Coeur");
+    	coul.add("Pique");
+    	coul.add("Trefle");
+    	
+    	ArrayList<String> values = new ArrayList<String>() ; 
+    	values.add("As");
+    	values.add("2");
+    	values.add("3");
+    	values.add("4");
+    	values.add("5");
+    	values.add("6");
+    	values.add("7");
+    	values.add("8");
+    	values.add("9");
+    	values.add("10");
+    	values.add("Valet");
+    	values.add("Dame");
+    	values.add("Roi");
+    	
+        return coul.get(couleur) + values.get(valeur) ;
 
     }
 }
