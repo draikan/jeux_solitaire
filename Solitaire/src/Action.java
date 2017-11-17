@@ -79,6 +79,7 @@ public class Action {
 			
 			
 }
+		
 	  
 	 public void tirer_une_carte() {	    
 		 if(paquet.sizePaquet() != 0) {
@@ -98,14 +99,16 @@ public class Action {
 		 Carte carte_dest = dest.get(dest.size()-1);
 		 Carte carte_exp = exp.get(exp.size()-1);
 		 
-		 if(dest.size() == 0 ) {
-			 if(carte_dest.val == 13 ) {
-				 dest.add(carte_exp) ;
-				 exp.remove(carte_exp);	 
-			 }
-			 if(dest == coul1 || dest==coul2 || dest == coul3 || dest == coul4 && carte_exp.val==1) {
+		 if(dest.size() == 0 && collonne.contains(dest)  || pileCoul.contains(dest) ) {
+			 if(carte_dest.val == 13 && collonne.contains(dest) ) {
 				 dest.add(carte_exp) ;
 				 exp.remove(carte_exp);
+				 return true ;
+			 }
+			 if(pileCoul.contains(dest) && carte_exp.val==1) {
+				 dest.add(carte_exp) ;
+				 exp.remove(carte_exp);
+				 return true ;
 			 }
 			 else {
 				 return false ;
