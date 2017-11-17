@@ -38,7 +38,7 @@ public class Action {
 	    ArrayList<Carte> coul4 = new ArrayList<Carte> ();
 	    
 	    
-		public void Action(){
+		public Action(){
 			
 			paquet = new Paquet() ;
 			
