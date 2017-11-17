@@ -64,8 +64,9 @@ public class Action {
 			collonne.add(c7);
 			
 			for(int i = 1 ;i<collonne.size()+1 ; i++) {
+				paquet.shuffle();
 				for(int j = 1 ; j < i+1; j++ ) {
-					Carte carte =  paquet.getPaquet((r.nextInt(paquet.sizePaquet()))); 
+					Carte carte =  paquet.getPaquet(0); 
 					(collonne.get(i)).add(carte);
 					paquet.removePaquet(carte);
 				}	
@@ -181,10 +182,28 @@ public class Action {
 			return false ;	 
 	 		}
 		
-		
-
 return false ;
 }
+	 
+
+public void printPlateau() {
+	System.out.println(c1);
+	System.out.println(c2);
+	System.out.println(c3);
+	System.out.println(c4);
+	System.out.println(c5);
+	System.out.println(c6);
+	System.out.println(c7);
+	
+	System.out.println(coul1);
+	System.out.println(coul2);
+	System.out.println(coul3);
+	System.out.println(coul4);
+	
+	System.out.println(paquet_v);
+
+}
+	 
 	
 public void menu()
 		{
